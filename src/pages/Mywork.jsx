@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import libraryImg from "../assets/library.jpg";
-import Sharenest from "../assets/Sharenest.jpg";
+import Sharenest from "../assets/sharenest.jpg";
 import helping from "../assets/helping.png"
 import MyWorkCard from "../components/MyWorkCard";
 const projects = [
