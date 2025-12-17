@@ -10,10 +10,12 @@ var usersRouter = require('./routes/users');
 var app = express();
 app.use(
   cors({
-      origin: "http://localhost:5173",
-      methods: ["post", "get"],
-       credentials: true
-      
+    origin: [
+      "http://localhost:5173",
+      "https://ayushportfolio-sigma.vercel.app",
+    ],
+    methods: ["post", "get"],
+    credentials: true,
   })
 );
 app.use(logger('dev'));
