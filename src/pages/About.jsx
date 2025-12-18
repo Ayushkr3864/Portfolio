@@ -64,6 +64,12 @@ const About = () => {
             boxShadow: "0px 15px 30px rgb(0,192,255)",
             transition: { type: "spring", stiffness: 120 },
           }}
+          whileTap={{
+            scale: 1.35,
+            y: -5,
+            boxShadow: "0px 15px 30px rgb(0,192,255)",
+            transition: { type: "spring", stiffness: 120 },
+          }}
           variants={fadeUp}
         >
           <motion.img
