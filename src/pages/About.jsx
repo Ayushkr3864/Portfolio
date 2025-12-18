@@ -1,5 +1,5 @@
 import React from "react";
-import profileImg from "../assets/image1.png";
+import profileImg from "../assets/ayushimg.png";
 import universityLogo from "../assets/imagecollege.png";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
@@ -52,15 +52,16 @@ const About = () => {
         className="flex flex-col lg:flex-row items-center justify-center gap-10"
         variants={container}
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         viewport={{ once: true }}
       >
         {/* Profile Image */}
         <motion.div
-          className="w-40 h-40 rounded-full overflow-hidden border border-white/10 backdrop-blur-md shadow-lg"
+          className="w-60 h-60 rounded-full overflow- bg-[#00c0ff] border border-white/10 backdrop-blur-md shadow-lg"
           whileHover={{
-            scale: 1.15,
-            rotate: 5,
+            scale: 1.35,
+            y: -5,
+            boxShadow: "0px 15px 30px rgb(0,192,255)",
             transition: { type: "spring", stiffness: 120 },
           }}
           variants={fadeUp}
@@ -68,7 +69,7 @@ const About = () => {
           <motion.img
             src={profileImg}
             alt="Profile"
-            className="w-full h-full object-cover rounded-full"
+            className="w-xl h-full object-cover rounded-full"
           />
         </motion.div>
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import AyushImg from "../assets/image1.png";
+import AyushImg from "../assets/ayushimg.png";
 import "../Stylesheets/hero.css";
 import { delay, motion } from "framer-motion";
 
@@ -53,9 +53,9 @@ function Hero() {
   return (
     <div className="parent w-full flex flex-col mt-10 md:flex-row items-center justify-center gap-20 md:m-0 ">
       {/* Slide-in image from left */}
-      <motion.div className="animate-[zoomIn_1.5s_ease-out_forwards] md:mt-0 backdrop-blur-md drop-shadow-[0_0_20px_rgba(135,206,250,0.5)] bg-white/1 border border-white/20 rounded-full shadow-xl text-white">
+      <motion.div className="animate-[zoomIn_1.5s_ease-out_forwards] md:mt-0 backdrop-blur-md drop-shadow-[0_0_20px_rgba(135,206,250,0.5)] bg-[#00c0ff] border border-white/20 rounded-full shadow-xl text-white">
         <img
-          className="rounded-full transition-transform duration-300 hover:scale-105 md:h-full w-full"
+          className="rounded-full transition-transform duration-300 hover:scale-105 md:h-full w-3xl"
           src={AyushImg}
           alt="Ayush"
         />
