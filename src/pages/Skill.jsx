@@ -41,25 +41,27 @@ const fadeInUp = {
 };
 
 function Skills() {
-
+ const fadeUp = {
+   hidden: { opacity: 0, y: 30 },
+   visible: {
+     opacity: 1,
+     y: 0,
+     transition: { duration: 0.6, ease: "easeOut" },
+   },
+ };
   return (
     <>
       <section className="bg-[#0f172a] text-white py-16 px-6">
-        <motion.div
-          className="flex justify-center mb-5"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          <h1
-            // makes the h1 focusable
-            className="text-white group inline-block relative hover:text-blue-400 focus:text-blue-400 transform transition-transform duration-500 hover:scale-105 focus:scale-105 outline-none text-4xl font-bold text-center"
-          >
-            My <span className="text-cyan-400"> Skills</span>
-            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full group-focus:w-full"></span>
-          </h1>
-        </motion.div>
+        <motion.h1
+               className="text-4xl md:text-5xl font-bold text-center mb-16 group relative"
+               variants={fadeUp}
+               initial="hidden"
+               whileInView="visible"
+               viewport={{ once: true }}
+             >
+               My <span className="text-cyan-400">Skills</span>
+               <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+             </motion.h1>
 
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
           {/* Technical Skills */}

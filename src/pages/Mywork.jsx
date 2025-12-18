@@ -49,19 +49,30 @@ const Mywork = () => {
       boxShadow: "0px 15px 25px rgba(0, 255, 255, 0.2)",
     },
   };
+   const fadeUp = {
+     hidden: { opacity: 0, y: 30 },
+     visible: {
+       opacity: 1,
+       y: 0,
+       transition: { duration: 0.6, ease: "easeOut" },
+     },
+   };
 
   return (
     <div className="bg-[#0f172a] min-h-screen px-4 md:px-16 py-16 text-white">
       {/* Heading */}
-      <motion.h1
-        className="text-4xl md:text-5xl font-bold text-center mb-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        My <span className="text-cyan-400">Projects</span>
-      </motion.h1>
+        
+              <motion.h1
+                className="text-4xl md:text-5xl font-bold text-center mb-16   group relative"
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                My <span className="text-cyan-400">Projects</span>
+                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+              </motion.h1>
+          
 
       {/* Projects Grid */}
      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

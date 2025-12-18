@@ -8,7 +8,9 @@ import { useNavigate } from "react-router";
 
 function Hero() {
   const typedRef = useRef(null);
+  const imagineRef = useRef(null)
   const typedInstance = useRef(null);
+  const imagineInstance = useRef(null);
   const Navigate = useNavigate()
   useEffect(() => {
     // const slideDown = {
@@ -25,8 +27,8 @@ function Hero() {
         "MERN Enthusiast",
         "Open Source Contributor",
       ],
-      typeSpeed: 50,
-      backSpeed: 30,
+      typeSpeed: 80,
+      backSpeed: 50,
       loop: false,
       backDelay: 1000,
       showCursor: true,
@@ -35,6 +37,18 @@ function Hero() {
       typedInstance.current.destroy();
     };
   }, []);
+  useEffect(() => {
+    imagineInstance.current = new Typed(imagineRef.current, {
+      strings: ["I turned your imagination into code."],
+      typeSpeed: 100,
+      backSpeed: 300,
+      loop: false,
+      showCursor: 0,
+    });
+     return () => {
+       imagineInstance.current.destroy();
+     };
+  },[])
 
   return (
     <div className="parent w-full flex flex-col mt-10 md:flex-row items-center justify-center gap-20 md:m-0 ">
@@ -59,6 +73,10 @@ function Hero() {
         <h3 className="text-3xl">
           <span>And I'm a </span>
           <span className="text-[#3a8cb9]" ref={typedRef}></span>
+        </h3>
+        <h3 className="text-3xl">
+          {" "}
+          <span ref={imagineRef} className="text-3xl"></span>
         </h3>
 
         <motion.p className="mt-2 text-lg leading-relaxed">

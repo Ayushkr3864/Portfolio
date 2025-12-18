@@ -13,6 +13,7 @@ import Library from './components/Library'
 import Contact from './pages/Contact'
 import Certificates from './pages/Certificates'
 import Todo from './components/Todo'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path='/Todo' element={<Todo/>}></Route>
         {/* <Route path="Library" element={<Library />}></Route> */}
       </Routes>
+      <Footer/>
     </>
   );
 }
