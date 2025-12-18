@@ -30,7 +30,7 @@ function Contact() {
 
     try {
       const res = await fetch(
-        " https://portfolio-201q.onrender.com/send-email",
+        "https://portfolio-201q.onrender.com/send-email",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
