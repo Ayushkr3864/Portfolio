@@ -16,27 +16,29 @@ router.post("/send-email", async (req, res) => {
   
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+    const Transporter = nodemailer.createTransport({
+      host: "smtp.sendgrid.net",
       port: 587,
+      secure: false,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: "apikey", // literal string
+        pass: process.env.SENDGRID_API_KEY,
       },
+      
     });
-
-    await transporter.sendMail({
-      from: email,
-      to: process.env.EMAIL_USER,
-      subject: `New Message from ${name}`,
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Message: ${message}
+     await Transporter.sendMail({
+       from: `"Portfolio Contact" ${process.env.EMAIL_USER}`, // verified sender
+       replyTo: email,
+       to: process.env.EMAIL_USER,
+       subject: `New Message from ${name}`,
+       text: `
+Name: ${name}
+Email: ${email}
+Message: ${message}
       `,
-    });
+     });
 
-    res.json({ success: true, message: "Email sent successfully!" });
+     res.json({ success: true, message: "Email sent successfully!" });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
