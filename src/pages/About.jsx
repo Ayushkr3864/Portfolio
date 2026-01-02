@@ -57,11 +57,11 @@ const About = () => {
       >
         {/* Profile Image */}
         <motion.div
-          className="w-60 h-60 rounded-full overflow- bg-[#00c0ff] border border-white/10 backdrop-blur-md shadow-lg"
+          className=" md:mt-0 backdrop-blur-md w-60 h-60 drop-shadow-[0_0_20px_rgba(135,206,250,0.5)]  border border-white/20 rounded-full shadow-xl text-white"
           whileHover={{
-            scale: 1.35,
+            scale: 1.15,
             y: -5,
-            boxShadow: "0px 15px 30px rgb(0,192,255)",
+            boxShadow: "0px 5px 20px rgb(0,162,205)",
             transition: { type: "spring", stiffness: 120 },
           }}
           whileTap={{
@@ -70,12 +70,11 @@ const About = () => {
             boxShadow: "0px 15px 30px rgb(0,192,255)",
             transition: { type: "spring", stiffness: 120 },
           }}
-          variants={fadeUp}
         >
           <motion.img
+            className="rounded-full animate-[zoomIn_2s_ease-out_forwards] transition-transform duration-600 hover:scale-105 md:h-full w-3xl"
             src={profileImg}
-            alt="Profile"
-            className="w-xl h-full object-cover rounded-full"
+            alt="Ayush"
           />
         </motion.div>
 

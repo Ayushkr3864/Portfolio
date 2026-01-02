@@ -53,10 +53,10 @@ function Hero() {
   return (
     <div className="parent w-full flex flex-col mt-10 md:flex-row items-center justify-center gap-20 md:m-0 ">
       {/* Slide-in image from left */}
-      <motion.div className="animate-[zoomIn_1.5s_ease-out_forwards] md:mt-0 backdrop-blur-md drop-shadow-[0_0_20px_rgba(135,206,250,0.5)] bg-[#00c0ff] border border-white/20 rounded-full shadow-xl text-white">
-        <img
-          className="rounded-full transition-transform duration-300 hover:scale-105 md:h-full w-3xl"
-          src={AyushImg}
+      <motion.div className=" md:mt-0  rounded-full  ">
+        <motion.img
+          className="rounded-full   animate-[zoomIn_2s_ease-out_forwards] transition-transform duration-600 hover:scale-105 md:h-96 md:w-3xl"
+          src="/gif2.gif"
           alt="Ayush"
         />
       </motion.div>
@@ -162,6 +162,7 @@ function Hero() {
         </div>
       </motion.div>
     </div>
+
   );
 }
 
