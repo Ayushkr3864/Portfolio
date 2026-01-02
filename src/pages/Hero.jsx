@@ -53,9 +53,9 @@ function Hero() {
   return (
     <div className="parent w-full flex flex-col mt-10 md:flex-row items-center justify-center gap-20 md:m-0 ">
       {/* Slide-in image from left */}
-      <motion.div className=" md:mt-0  rounded-full  ">
+      <motion.div className=" md:mt-0 mt-15 mb-10  rounded-full  ">
         <motion.img
-          className="rounded-full   animate-[zoomIn_2s_ease-out_forwards] transition-transform duration-600 hover:scale-105 md:h-96 md:w-3xl"
+          className="rounded-full   animate-[zoomIn_2s_ease-out_forwards] transition-transform duration-600 md:scale-150  scale-200 md:h-96 md:w-3xl"
           src="/gif2.gif"
           alt="Ayush"
         />
