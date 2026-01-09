@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { delay, easeInOut, motion } from "framer-motion";
+import Navbar from "../components/navbar";
 import {
   FaJs,
   FaPython,
@@ -51,17 +52,20 @@ function Skills() {
  };
   return (
     <>
+      <div className="w-full ">
+        <Navbar />
+      </div>
       <section className="bg-[#0f172a] text-white py-16 px-6">
         <motion.h1
-               className="text-4xl md:text-5xl font-bold text-center mb-16 group relative"
-               variants={fadeUp}
-               initial="hidden"
-               whileInView="visible"
-               viewport={{ once: true }}
-             >
-               My <span className="text-cyan-400">Skills</span>
-               <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
-             </motion.h1>
+          className="text-4xl md:text-5xl font-bold text-center mb-16 group relative"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          My <span className="text-cyan-400">Skills</span>
+          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+        </motion.h1>
 
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
           {/* Technical Skills */}
@@ -161,6 +165,150 @@ function Skills() {
               ))}
             </div>
           </motion.div>
+        </div>
+        {/* Floating Skills Visual */}
+        <div className="w-full flex justify-center mt-15 ">
+          <div className="relative w-[100%] md:w-[700px] h-[450px] md:h-[450px] rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+            <h2 className="absolute top-3 left-1/2 -translate-x-1/2 text-xl md:text-2xl text-cyan-400 font-bold">
+              Tech I Use
+            </h2>
+
+            {/* React */}
+            <motion.div
+              className="absolute top-16 left-8 md:left-20 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <FaReact />
+            </motion.div>
+            <motion.div
+              className="absolute top-30  md:left-20 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img src="/java.png" className="md:h-20 h-15" alt="" />
+            </motion.div>
+            {/* Node */}
+            <motion.div
+              className="absolute top-16 right-8 md:right-20 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, 18, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img src="/Node.js_logo.svg.png" alt="" className="h-20" />
+            </motion.div>
+            <motion.div
+              className="absolute bottom-45 md:top-60 left-8 md:left- text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
+                alt=""
+                className="md:h-20 h-10"
+              />
+            </motion.div>
+            {/* Mongo */}
+            <motion.div
+              className="absolute md:bottom-15 left-8 md:left-32 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <img src="/MongoDB.png" alt="" className="h-10" />
+            </motion.div>
+            <motion.div
+              className="absolute md:bottom-10 bottom-44 left-50 md:left-80 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/demo/image/upload/cloudinary_icon.png"
+                alt=""
+                className="md:h-20 h-10"
+              />
+            </motion.div>
+            <motion.div
+              className="absolute top-25 ml-20 right md:left-20 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img src="/HTML5.png" alt="" className="md:h-20 h-10" />
+            </motion.div>
+            {/* JS */}
+            <motion.div
+              className="absolute bottom-16 right-8 md:right-32 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, 14, 0] }}
+              transition={{
+                duration: 5.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <img src="/javascript_480.jpg" className="md:h-20 h-10 " alt="" />
+            </motion.div>
+
+            {/* Center Git */}
+            <motion.div
+              className="absolute top-50 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl md:text-6xl text-cyan-400"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img src="/Github.png" alt="" className="md:h-20 h-10" />
+            </motion.div>
+            <motion.div
+              className="absolute top-80 md:top-30 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl md:text-6xl text-cyan-400"
+              animate={{ y: [0, -10, 10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img src="/css.png" alt="" className="md:h-20 h-10" />
+            </motion.div>
+
+            {/* Express */}
+            <motion.div
+              className="absolute top-30 md:top-1/2 left-50 -translate-x-1/2 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, 12, 0] }}
+              transition={{
+                duration: 4.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <SiExpress />
+            </motion.div>
+            <motion.div
+              className="absolute top-40   left-20 md:left-120 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, 18, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+                alt=""
+                className="md:h-20 h-10"
+              />
+            </motion.div>
+            <motion.div
+              className="absolute md:top-85 top-70 left-5 md:right-65 text-4xl md:text-5xl text-cyan-400"
+              animate={{ y: [0, 18, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                alt=""
+                className="md:h-20 h-10"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
     </>

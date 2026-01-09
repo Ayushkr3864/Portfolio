@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import Navbar from "../components/navbar";
 function Contact() {
   const container = {
     hidden: { opacity: 0 },
@@ -50,6 +50,9 @@ function Contact() {
 
   return (
     <>
+      <div className="w-full ">
+        <Navbar />
+      </div>
       <motion.section
         className="py-20 px-10 bg-[#0d1b2a]/80 backdrop-blur-md"
         variants={fadeUp}

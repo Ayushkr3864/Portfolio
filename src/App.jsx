@@ -19,7 +19,7 @@ import Footer from './components/Footer'
 function App() {
   return (
     <>
-      <Navbar/>
+      
       <Routes>
         {/* <Route path="/" element={<Layout />}></Route> */}
         <Route path="/" element={<Hero />}></Route>

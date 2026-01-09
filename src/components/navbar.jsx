@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { NavLink, Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
+
 
 function Navbar() {
   const navItems = ["Home", "About", "Skills", "Project","Certificates", "Contact"];
@@ -21,7 +22,7 @@ function Navbar() {
   return (
     <>
       {/* // Desktop Menu */}
-      <div className=" hidden md:flex flex-wrap justify-evenly items-center space-y-3 p-2 bg-[#12293D]    ">
+      <div className=" hidden md:flex flex-wrap justify-evenly items-center space-y-3 p-2 ">
         {/* Logo */}
         <motion.div
           className="flex space-x-1"
@@ -100,15 +101,6 @@ function Navbar() {
             folio
           </span>
         </motion.div>
-        {/* <button className="relative group md:hidden " onClick={toogle}>
-          <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-slate-700 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
-            <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
-              <div className="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:rotate-[42deg]"></div>
-              <div className="bg-white h-[2px] w-1/2 rounded transform transition-all duration-300 group-focus:-translate-x-10"></div>
-              <div className="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:-rotate-[42deg]"></div>
-            </div>
-          </div>
-        </button> */}
         <motion.div
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -118,54 +110,60 @@ function Navbar() {
         </motion.div>
       </div>
       {/* mobile menu*/}
-      {isOpen && (
-        <motion.div
-          className=" md:hidden flex flex-col items-center space-y-3 p-2 bg-[#12293D] "
-          initial={{ y: -300, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          {/* Logo */}
-
-          {/* Nav Links */}
-          <div className="flex flex-wrap cursor-pointer flex-col items-center gap-5 justify-around text-2xl ">
-            {navItems.map((item, index) => (
-              <Link to={`/${item}`}>
-                <motion.div
-                  key={index}
-                  tabIndex={0}
-                  onClick={() => {
-                    setisOpen(false);
-                  }}
-                  className="text-white group text-xl items-center flex font-semibold  hover:text-blue-400 focus:text-blue-400 transform transition-transform  outline-none"
-                >
-                  {item}
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Button */}
+      <AnimatePresence>
+        {" "}
+        {isOpen && (
           <motion.div
-            className="opacity-0 "
-            // initial="hidden"
-            // animate="visible"
-            // variants={slideUp}
-            custom={12}
+            className=" md:hidden flex flex-col items-center space-y-3 p-2 rounded-r-3xl absolute z-10 bg-[#12293D] "
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ opacity: 0, x: -300 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <button className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-1.5 px-4 rounded flex items-center gap-2">
-              Download CV
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 fill-white"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z" />
-              </svg>
-            </button>
+            {/* Logo */}
+
+            {/* Nav Links */}
+            <div className="flex flex-wrap cursor-pointer flex-col items-center gap-5 justify-around text-2xl ">
+              {navItems.map((item, index) => (
+                <NavLink
+                  to={`/${item}`}
+                  className={({ isActive }) =>
+                    `relative group text-xl font-semibold transition-all duration-300 
+         ${
+           isActive
+             ? "text-blue-400 drop-shadow-[0_0_10px_#3b82f6]"
+             : "text-white hover:text-blue-400"
+         }`
+                  }
+                >
+                  <motion.div
+                    key={index}
+                    tabIndex={0}
+                    onClick={() => {
+                      setisOpen(false);
+                    }}
+                    className="text-white group text-xl items-center flex font-semibold  hover:text-blue-400 focus:text-blue-400  transform transition-transform  outline-none"
+                  >
+                    {item}
+                  </motion.div>
+                </NavLink>
+              ))}
+
+              <button className="bg-pink-600 mb-4 hover:bg-pink-700 text-white font-semibold py-1.5 px-4 rounded flex items-center gap-2">
+                Download CV
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 fill-white"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z" />
+                </svg>
+              </button>
+            </div>
+            {/* Button */}
           </motion.div>
-        </motion.div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 }

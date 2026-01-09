@@ -4,6 +4,8 @@ import libraryImg from "../assets/library.jpg";
 import Sharenest from "../assets/sharenest.jpg";
 import helping from "../assets/helping.png"
 import MyWorkCard from "../components/MyWorkCard";
+import Navbar from "../components/navbar";
+
 const projects = [
   {
     title: "Helping Hand Foundation(NGO)",
@@ -59,35 +61,39 @@ const Mywork = () => {
    };
 
   return (
-    <div className="bg-[#0f172a] min-h-screen px-4 md:px-16 py-16 text-white">
-      {/* Heading */}
-        
-              <motion.h1
-                className="text-4xl md:text-5xl font-bold text-center mb-16   group relative"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                My <span className="text-cyan-400">Projects</span>
-                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
-              </motion.h1>
-          
-
-      {/* Projects Grid */}
-     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {" "}
-        {projects.map((project, index) => (
-          <MyWorkCard
-            key={index}
-            desc={project.description}
-            img={project.image}
-            Title={project.title}
-            link={project.Explore}
-          />
-        ))}
+    <>
+      <div className="w-full ">
+        <Navbar />
       </div>
-    </div>
+      <div className="bg-[#0f172a] min-h-screen px-4 md:px-16 py-16 text-white">
+        {/* Heading */}
+
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold text-center mb-16   group relative"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          My <span className="text-cyan-400">Projects</span>
+          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+        </motion.h1>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {" "}
+          {projects.map((project, index) => (
+            <MyWorkCard
+              key={index}
+              desc={project.description}
+              img={project.image}
+              Title={project.title}
+              link={project.Explore}
+            />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 

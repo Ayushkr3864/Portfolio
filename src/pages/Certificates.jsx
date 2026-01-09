@@ -1,6 +1,7 @@
 import React from 'react'
 import CertificatesCard from '../components/CertificatesCard'
 import { motion } from 'framer-motion';
+import Navbar from '../components/navbar';
 function Certificates() {
   // const fadeInUp = {
   //   hidden: { opacity: 0, y: 50 },
@@ -54,6 +55,9 @@ function Certificates() {
     ];
   return (
     <>
+      <div className="w-full ">
+        <Navbar />
+      </div>
       <div className="px-4 md:px-16 py-16">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-center   group relative"
