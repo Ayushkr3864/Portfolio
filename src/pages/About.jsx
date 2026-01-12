@@ -43,7 +43,7 @@ const About = () => {
       <div className="bg-[#0f172a] px-4 md:px-16 py-16 text-white">
         {/* Heading */}
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-center mb-16 group relative"
+          className="text-4xl md:text-5xl font-bold text-center mt-8 mb-16 group relative"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"

@@ -13,14 +13,6 @@ function Hero() {
   const imagineInstance = useRef(null);
   const Navigate = useNavigate()
   useEffect(() => {
-    // const slideDown = {
-    //   hidden: { opacity: 0, y: -50 },
-    //   visible: (time) => ({
-    //     opacity: 1,
-    //       y:0,
-    //       transition:{delay:time*.1,ease:"easeInOut",duration:0.6}
-    //   })
-    // }
     typedInstance.current = new Typed(typedRef.current, {
       strings: [
         "Full Stack Developer",
@@ -67,7 +59,7 @@ function Hero() {
         </div>
         <div className="w-full max-w-7xl px-4 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
           {/* Slide-in image from left */}
-          <motion.div className=" md:mt-0 mt-15">
+          <motion.div className=" md:mt-0 mt-35">
             <motion.img
               className="rounded-full animate-[zoomIn_2s_ease-out_forwards] mb-5 transition-transform duration-600 md:scale-150 scale-200 md:h-96 md:w-4xl"
               src="/gif2.gif"
@@ -146,7 +138,7 @@ function Hero() {
                 href="https://www.instagram.com/ayushkr_rai3864/"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 1.2 }}
               >
                 <i className="fa-brands fa-square-instagram text-5xl text-[#2596be] hover:-translate-y-2 transition-transform duration-300"></i>

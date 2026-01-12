@@ -1,12 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 import { NavLink, Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
+import { Home, User, Wrench, FolderKanban, Award, Phone } from "lucide-react";
 
 
 function Navbar() {
-  const navItems = ["Home", "About", "Skills", "Project","Certificates", "Contact"];
+   const [scrolled, setScrolled] = useState(false);
+const navItems = [
+  {
+    label: "Home",
+    icon: Home,
+    path: "/",
+  },
+  {
+    label: "About",
+    icon: User,
+    path: "/about",
+  },
+  {
+    label: "Skills",
+    icon: Wrench,
+    path: "/skills",
+  },
+  {
+    label: "Project",
+    icon: FolderKanban,
+    path: "/projects",
+  },
+  {
+    label: "Certificates",
+    icon: Award,
+    path: "/certificates",
+  },
+  {
+    label: "Contact",
+    icon: Phone,
+    path: "/contact",
+  },
+];
         const slideUp = {
           hidden: { opacity: 0, y: 50 },
           visible: (custom) => ({
@@ -19,10 +52,24 @@ function Navbar() {
   const toogle = () => {
     setisOpen(!isOpen)
   }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY>20)
+    }
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+  },[])
   return (
     <>
       {/* // Desktop Menu */}
-      <div className=" hidden md:flex flex-wrap justify-evenly items-center space-y-3 p-2 ">
+      <div
+        className={`hidden md:flex w-full fixed top-0 left-0 z-50 flex-wrap justify-evenly items-center p-4 transition-all duration-500
+  ${
+    scrolled
+      ? "backdrop-blur-xl bg-white/10 shadow-lg border-b border-white/20"
+      : "bg-transparent"
+  }`}
+      >
         {/* Logo */}
         <motion.div
           className="flex space-x-1"
@@ -42,53 +89,47 @@ function Navbar() {
 
         {/* Nav Links */}
         <div className="flex flex-wrap cursor-pointer flex-col items-center gap-5 justify-around text-2xl md:flex-row space-x-15">
-          {navItems.map((item, index) => (
-            <Link key={index} to={`/${item}`}>
-              <motion.h1
-                // initial="hidden"
-                // animate="visible"
-                // variants={slideUp}
-                // custom={index + 5}
-                key={item}
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              to={item.path}
+              className="group flex items-center gap-1.5"
+            >
+              <item.icon
+                size={24}
+                className="text-white transition-all duration-300 group-hover:text-blue-400 group-hover:scale-110"
+              />
+
+              <span
                 tabIndex={0}
-                className="text-white group inline-block text-xl font-semibold relative hover:text-blue-400 focus:text-blue-400 transform transition-transform duration-500 hover:scale-105 focus:scale-105 outline-none"
+                className="text-white inline-block text-xl font-semibold relative 
+    hover:text-blue-400 focus:text-blue-400 
+    transform transition-transform duration-500 
+    hover:scale-105 focus:scale-105 outline-none"
               >
-                {item}
-                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full group-focus:w-full"></span>
-              </motion.h1>
+                {item.label}
+
+                <span
+                  className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 
+      transition-all duration-500 group-hover:w-full group-focus:w-full"
+                />
+              </span>
             </Link>
           ))}
         </div>
 
         {/* Button */}
-        <motion.div
-        // className="opacity-0 "
-        // initial="hidden"
-        // animate="visible"
-        // variants={slideUp}
-        // custom={12}
-        >
-          <Link to="https://drive.google.com/file/d/1cm3N3o3H3nJkFUAOd9DkO6zjCKmEH_Zg/view?usp=drivesdk ">
-            {" "}
-            <button className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-1.5 px-4 rounded flex items-center gap-2">
-              Download CV
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 fill-white"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z" />
-              </svg>
-            </button>
-          </Link>
-        </motion.div>
       </div>
-      <div className=" p-3 md:hidden flex justify-between">
+      <div
+        className={`p-3 md:hidden fixed top-0 left-0 w-full z-50 flex justify-between transition-all duration-500
+  ${
+    scrolled
+      ? "backdrop-blur-xl bg-white/10 shadow-lg border-b border-white/20"
+      : "bg-transparent"
+  }`}
+      >
         <motion.div
           className="flex space-x-1"
-          // initial="hidden"
-          // animate="visible"
-          // variants={slideUp}
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.5 }}
@@ -114,51 +155,45 @@ function Navbar() {
         {" "}
         {isOpen && (
           <motion.div
-            className=" md:hidden flex flex-col items-center space-y-3 p-2 rounded-r-3xl absolute z-10 bg-[#12293D] "
+            className=" md:hidden flex flex-col fixed items-center  space-y-3 p-2 py-5 rounded-r-3xl mt-20 z-10 bg-[#12293D] "
             initial={{ x: -300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ opacity: 0, x: -300 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Logo */}
-
             {/* Nav Links */}
             <div className="flex flex-wrap cursor-pointer flex-col items-center gap-5 justify-around text-2xl ">
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <NavLink
-                  to={`/${item}`}
+                  key={item.label}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    `relative group text-xl font-semibold transition-all duration-300 
-         ${
-           isActive
-             ? "text-blue-400 drop-shadow-[0_0_10px_#3b82f6]"
-             : "text-white hover:text-blue-400"
-         }`
+                    `flex items-center gap-4 text-xl font-semibold transition-all duration-300
+                  ${
+                    isActive
+                      ? "text-blue-400 scale-110"
+                      : "text-white hover:text-blue-400"
+                  }`
                   }
                 >
-                  <motion.div
-                    key={index}
-                    tabIndex={0}
-                    onClick={() => {
-                      setisOpen(false);
-                    }}
-                    className="text-white group text-xl items-center flex font-semibold  hover:text-blue-400 focus:text-blue-400  transform transition-transform  outline-none"
-                  >
-                    {item}
-                  </motion.div>
+                  <item.icon size={24} />
+                  {item.label}
                 </NavLink>
               ))}
 
-              <button className="bg-pink-600 mb-4 hover:bg-pink-700 text-white font-semibold py-1.5 px-4 rounded flex items-center gap-2">
-                Download CV
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 fill-white"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z" />
-                </svg>
-              </button>
+              <a href="https://drive.google.com/file/d/1cm3N3o3H3nJkFUAOd9DkO6zjCKmEH_Zg/view?usp=drivesdk">
+                <button className="bg-pink-600 mb-4 hover:bg-pink-700 text-white font-semibold py-1.5 px-4 rounded flex items-center gap-2">
+                  Download CV
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 fill-white"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 16l4-5h-3V4h-2v7H8l4 5zm8 2H4v2h16v-2z" />
+                  </svg>
+                </button>
+              </a>
             </div>
             {/* Button */}
           </motion.div>
