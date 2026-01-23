@@ -57,7 +57,7 @@ function Hero() {
         <div className="w-full ">
           <Navbar />
         </div>
-        <div className="w-full max-w-7xl px-4 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
+        <div className="w-full max-w-7xl px-4 flex flex-col z-10 md:flex-row items-center justify-center gap-12 md:gap-20">
           {/* Slide-in image from left */}
           <motion.div className=" md:mt-0 mt-35">
             <motion.img
