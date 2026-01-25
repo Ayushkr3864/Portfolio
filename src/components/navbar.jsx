@@ -155,7 +155,7 @@ const navItems = [
         {" "}
         {isOpen && (
           <motion.div
-            className=" md:hidden flex flex-col fixed items-center  space-y-3 p-2 py-5 rounded-r-3xl mt-20 z-10 bg-[#12293D] "
+            className=" md:hidden flex flex-col fixed items-center z-20  space-y-3 p-2 py-5 rounded-r-3xl mt-20 z-10 bg-[#12293D] "
             initial={{ x: -300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ opacity: 0, x: -300 }}
