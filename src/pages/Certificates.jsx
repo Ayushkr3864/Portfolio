@@ -52,6 +52,14 @@ function Certificates() {
         thumbnailUrl: "/image.png",
         fileUrl: "https://tinyurl.com/8ued49ft",
       },
+      {
+        id: "c6",
+        title: "System Design Skill Test Certificate",
+        issuer: "ScholarHat",
+        date: "09 April 2026",
+        thumbnailUrl: "/system.jpg",
+        fileUrl: "https://www.scholarhat.com/certificate/verify",
+      },
     ];
   return (
     <>
@@ -67,7 +75,7 @@ function Certificates() {
           viewport={{ once: true }}
         >
           My <span className="text-cyan-400">Certificates</span>
-          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-amber-400 transition-all duration-500 group-hover:w-full"></span>
         </motion.h1>
       </div>
       <CertificatesCard certificates={Certificates} />

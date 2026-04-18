@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
 import Navbar from "../components/navbar";
 
-
 const About = () => {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
+
   const container = {
     hidden: {},
     visible: {
@@ -30,87 +30,83 @@ const About = () => {
     hover: {
       scale: 1.05,
       y: -10,
-      boxShadow: "0px 20px 30px rgba(135, 206, 250, 0.3)",
+      boxShadow: "0px 20px 30px rgba(34, 211, 238, 0.14)",
       transition: { duration: 0.3 },
     },
   };
 
   return (
     <>
-      <div className="w-full ">
+      <div className="w-full">
         <Navbar />
       </div>
-      <div className="bg-[#0f172a] px-4 md:px-16 py-16 text-white">
-        {/* Heading */}
+      <div className="bg-transparent px-4 py-16 text-white md:px-16">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-center mt-8 mb-16 group relative"
+          className="group relative mb-16 mt-8 text-center text-4xl font-bold md:text-5xl"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           About <span className="text-cyan-400">Me</span>
-          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+          <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-amber-400 transition-all duration-500 group-hover:w-full"></span>
         </motion.h1>
 
-        {/* Profile & Bio */}
         <motion.div
-          className="flex flex-col lg:flex-row items-center justify-center gap-10"
+          className="flex flex-col items-center justify-center gap-10 lg:flex-row"
           variants={container}
           initial="hidden"
           animate="visible"
           viewport={{ once: true }}
         >
-          {/* Profile Image */}
           <motion.div
-            className=" md:mt-0 backdrop-blur-md w-60 h-60 drop-shadow-[0_0_20px_rgba(135,206,250,0.5)]  border border-white/20 rounded-full shadow-xl text-white"
+            className="h-60 w-60 rounded-full border border-cyan-400/25 text-white shadow-xl shadow-cyan-500/10 backdrop-blur-md md:mt-0"
             whileHover={{
               scale: 1.15,
               y: -5,
-              boxShadow: "0px 5px 20px rgb(0,162,205)",
+              boxShadow: "0px 5px 20px rgba(34, 211, 238, 0.35)",
               transition: { type: "spring", stiffness: 120 },
             }}
             whileTap={{
-              scale: 1.35,
+              scale: 1.08,
               y: -5,
-              boxShadow: "0px 15px 30px rgb(0,192,255)",
+              boxShadow: "0px 15px 30px rgba(34, 211, 238, 0.32)",
               transition: { type: "spring", stiffness: 120 },
             }}
           >
             <motion.img
-              className="rounded-full animate-[zoomIn_2s_ease-out_forwards] transition-transform duration-600 hover:scale-105 md:h-full w-3xl"
+              className="w-3xl rounded-full transition-transform duration-600 animate-[zoomIn_2s_ease-out_forwards] hover:scale-105 md:h-full"
               src={profileImg}
               alt="Ayush"
             />
           </motion.div>
 
-          {/* Bio Card */}
           <motion.div
-            className="glass-card p-6 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 shadow-lg flex-1"
+            className="glass-card flex-1 rounded-2xl border border-[rgba(148,163,184,0.16)] bg-[rgba(15,23,42,0.72)] p-6 shadow-[0_18px_45px_rgba(8,17,31,0.35)] backdrop-blur-md"
             variants={fadeUp}
             whileHover="hover"
             initial="hidden"
             whileInView="visible"
           >
             <motion.h2
-              className="text-2xl md:text-3xl font-bold mb-4"
+              className="mb-4 text-2xl font-bold md:text-3xl"
               variants={fadeUp}
             >
               I am looking for{" "}
-              <span className="text-sky-400">New Opportunities</span> & projects
+              <span className="text-amber-300">New Opportunities</span> &
+              projects
             </motion.h2>
             <motion.p
-              className="text-gray-300 leading-relaxed mb-6"
+              className="mb-6 leading-relaxed text-slate-300"
               variants={fadeUp}
             >
-              I'm an undergraduate and aspiring Full Stack Developer with
+              I&apos;m an undergraduate and aspiring Full Stack Developer with
               practical experience in building full-stack web applications using
               React, Node.js, Express, and MongoDB. I love learning,
               problem-solving, and writing clean, scalable code.
             </motion.p>
 
-            {/* Stats */}
-            <motion.div className="flex gap-6 flex-wrap mb-6" variants={fadeUp}>
+            <motion.div className="mb-6 flex flex-wrap gap-6" variants={fadeUp}>
               {[
                 { num: "8", label: "CGPA" },
                 { num: "Fresher", label: "Currently in 3rd Year" },
@@ -124,93 +120,89 @@ const About = () => {
                   transition={{ delay: i * 0.2 }}
                 >
                   <h2 className="text-2xl font-bold">{stat.num}</h2>
-                  <p className="text-sm text-gray-400">{stat.label}</p>
+                  <p className="text-sm text-slate-400">{stat.label}</p>
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Button */}
             <motion.button
-              className="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-300"
+              className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition duration-300 hover:bg-cyan-300"
               whileHover={{ scale: 1.05 }}
               onClick={() => {
-                Navigate("/Contact");
+                navigate("/Contact");
               }}
             >
-              Get in Touch →
+              Get in Touch
             </motion.button>
           </motion.div>
         </motion.div>
 
-        {/* Education */}
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-center mt-24 mb-10 group relative"
+          className="group relative mb-10 mt-24 text-center text-4xl font-bold md:text-5xl"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           Education
-          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+          <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-amber-400 transition-all duration-500 group-hover:w-full"></span>
         </motion.h1>
 
         <motion.div
-          className="flex flex-col md:flex-row gap-6 items-center justify-center"
+          className="flex flex-col items-center justify-center gap-6 md:flex-row"
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {/* University Card */}
           <motion.div
-            className="w-72 p-6 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 shadow-lg text-white"
+            className="w-72 rounded-2xl border border-[rgba(148,163,184,0.16)] bg-[rgba(15,23,42,0.72)] p-6 text-white shadow-[0_18px_45px_rgba(8,17,31,0.35)] backdrop-blur-md"
             whileHover="hover"
             variants={{ ...fadeUp, hover: cardHover.hover }}
           >
-            <div className="flex items-center gap-4 mb-4">
+            <div className="mb-4 flex items-center gap-4">
               <motion.img
                 src={universityLogo}
                 alt="University Logo"
-                className="w-12 h-12 rounded-full"
+                className="h-12 w-12 rounded-full"
                 whileHover={{ scale: 1.2, rotate: 10 }}
               />
               <h3 className="text-xl font-semibold">
                 Greater Noida Institute of Technology
               </h3>
             </div>
-            <p className="text-gray-300 text-sm mb-2">
+            <p className="mb-2 text-sm text-slate-300">
               <b className="text-[20px]">University:</b> Dr. A. P. J. Abdul
               Kalam Technical University, Lucknow
             </p>
-            <p className="text-gray-300 text-sm mb-2">
+            <p className="mb-2 text-sm text-slate-300">
               B.Tech in Computer Science
             </p>
-            <p className="text-gray-400 text-sm">
-              CGPA: <span className="text-white font-bold">8</span>
+            <p className="text-sm text-slate-400">
+              CGPA: <span className="font-bold text-white">8</span>
             </p>
           </motion.div>
 
-          {/* College Card */}
           <motion.div
-            className="w-72 p-6 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 shadow-lg text-white"
+            className="w-72 rounded-2xl border border-[rgba(148,163,184,0.16)] bg-[rgba(15,23,42,0.72)] p-6 text-white shadow-[0_18px_45px_rgba(8,17,31,0.35)] backdrop-blur-md"
             whileHover="hover"
             variants={{ ...fadeUp, hover: cardHover.hover }}
           >
-            <div className="flex items-center gap-4 mb-4">
-              <img alt="College Logo" className="w-12 h-12 rounded-full" />
+            <div className="mb-4 flex items-center gap-4">
+              <img alt="College Logo" className="h-12 w-12 rounded-full" />
               <h3 className="text-xl font-semibold">Rao Kasal Public School</h3>
             </div>
-            <p className="text-gray-300 text-sm mb-2">
+            <p className="mb-2 text-sm text-slate-300">
               <b className="text-[20px]">Board:</b> Central Board of Secondary
               Education, Greater Noida
             </p>
-            <p className="text-gray-300 text-sm mb-2">Intermediate (10+2)</p>
-            <p className="text-gray-400 text-sm">
-              Percentage: <span className="text-white font-bold">84.6</span>
+            <p className="mb-2 text-sm text-slate-300">Intermediate (10+2)</p>
+            <p className="text-sm text-slate-400">
+              Percentage: <span className="font-bold text-white">84.6</span>
             </p>
-            <p className="text-gray-300 text-sm mb-2">Secondary Education</p>
-            <p className="text-gray-400 text-sm">
-              Percentage: <span className="text-white font-bold">80</span>
+            <p className="mb-2 text-sm text-slate-300">Secondary Education</p>
+            <p className="text-sm text-slate-400">
+              Percentage: <span className="font-bold text-white">80</span>
             </p>
           </motion.div>
         </motion.div>

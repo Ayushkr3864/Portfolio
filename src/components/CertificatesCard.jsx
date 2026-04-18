@@ -1,72 +1,67 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function CertificatesCard({
-  certificates = [],
-}) {
+export default function CertificatesCard({ certificates = [] }) {
   const [active, setActive] = useState(null);
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-18">
+    <div className="mx-auto max-w-6xl p-4">
+      <div className="grid grid-cols-1 gap-18 sm:grid-cols-2">
         {certificates.map((cert) => (
           <motion.div
             key={cert.id}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.8, delay:1 }}
-            className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-md 
-                       rounded-2xl p-6 shadow-md cursor-pointer
-                       h-72 flex flex-col justify-between"
+            transition={{ duration: 0.8, delay: 1 }}
+            className="flex h-72 cursor-pointer flex-col justify-between rounded-2xl border border-[rgba(148,163,184,0.16)] bg-[rgba(15,23,42,0.72)] p-6 shadow-[0_18px_45px_rgba(8,17,31,0.35)] backdrop-blur-md"
             onClick={() => setActive(cert.id)}
           >
             <img
               src={cert.thumbnailUrl}
               alt={cert.title}
-              className="w-full h-40 object-cover rounded-xl shadow-sm"
+              className="h-40 w-full rounded-xl object-cover shadow-sm"
             />
 
             <div>
-              <h4 className="text-lg font-semibold">{cert.title}</h4>
-              <p className="text-sm text-slate-500">{cert.issuer}</p>
-              <p className="text-xs text-slate-400 mt-1">{cert.date}</p>
+              <h4 className="text-lg font-semibold text-slate-100">
+                {cert.title}
+              </h4>
+              <p className="text-sm text-slate-300">{cert.issuer}</p>
+              <p className="mt-1 text-xs text-slate-400">{cert.date}</p>
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* MODAL */}
       <AnimatePresence>
         {active && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 p-4"
             onClick={() => setActive(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white dark:bg-slate-900 rounded-2xl p-4 w-full max-w-3xl"
+              className="w-full max-w-3xl rounded-2xl border border-[rgba(148,163,184,0.16)] bg-[rgba(8,17,31,0.96)] p-4"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-between items-center mb-4">
+              <div className="mb-4 flex items-center justify-between">
                 <div>
-                  <h4 className="text-lg font-semibold">
+                  <h4 className="text-lg font-semibold text-slate-100">
                     {certificates.find((c) => c.id === active)?.title}
                   </h4>
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-slate-300">
                     {certificates.find((c) => c.id === active)?.issuer}
                   </p>
                 </div>
 
                 <button
-                  className="px-3 py-1 rounded-md border"
+                  className="rounded-md border border-slate-700 px-3 py-1 text-slate-200"
                   onClick={() => setActive(null)}
                 >
                   Close
@@ -75,7 +70,7 @@ export default function CertificatesCard({
 
               <img
                 src={certificates.find((c) => c.id === active)?.thumbnailUrl}
-                className="w-full h-[500px] object-contain rounded-xl bg-slate-100 dark:bg-slate-800"
+                className="h-[500px] w-full rounded-xl bg-slate-900 object-contain"
                 alt=""
               />
 
@@ -84,7 +79,7 @@ export default function CertificatesCard({
                   href={certificates.find((c) => c.id === active)?.fileUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block mt-4 px-4 py-2 rounded-md border font-medium"
+                  className="mt-4 inline-block rounded-md border border-cyan-400/40 bg-cyan-400 px-4 py-2 font-medium text-slate-950"
                 >
                   Open Certificate File
                 </a>

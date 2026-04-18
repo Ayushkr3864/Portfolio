@@ -21,7 +21,7 @@ const ProjectDetail = () => {
   };
 
   return (
-    <div className="bg-[#0f172a] min-h-screen text-white px-4 md:px-16 py-16">
+    <div className="min-h-screen bg-transparent px-4 py-16 text-white md:px-16">
       {/* Project Heading */}
       <motion.h1
         className="text-4xl md:text-5xl font-bold text-center mb-16 group relative"
@@ -30,8 +30,8 @@ const ProjectDetail = () => {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        TODO APP <span className="text-cyan-400">Using React</span>
-        <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+            TODO APP <span className="text-cyan-400">Using React</span>
+            <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-amber-400 transition-all duration-500 group-hover:w-full"></span>
       </motion.h1>
       {/* Project Image */}
       <motion.img
@@ -46,7 +46,7 @@ const ProjectDetail = () => {
 
       {/* Project Description */}
       <motion.div
-        className="max-w-4xl mx-auto text-gray-300 space-y-6"
+          className="mx-auto max-w-4xl space-y-6 text-slate-300"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -98,7 +98,7 @@ const ProjectDetail = () => {
             href="https://github.com/Ayushkr3864/Todo_UsingReact"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg font-semibold transition"
+          className="rounded-lg bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
           >
             GitHub
           </a>
@@ -106,7 +106,7 @@ const ProjectDetail = () => {
             href="https://todo-using-react-sigma.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-lg font-semibold transition"
+          className="rounded-lg border border-slate-600 px-6 py-3 font-semibold text-slate-100 transition hover:border-cyan-400 hover:text-cyan-400"
           >
             Live Demo
           </a>

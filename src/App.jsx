@@ -9,6 +9,8 @@ import Layout from './Layout'
 import ResourceSharingProject from './components/ResourceSharing'
 import HelpingHand from './components/HelpingHand'
 import Library from './components/Library'
+import VendorLocator from './components/VendorLocator'
+import AjnabeeTrip from './components/AjnabeeTrip'
 
 import Contact from './pages/Contact'
 import Certificates from './pages/Certificates'
@@ -30,6 +32,8 @@ function App() {
         <Route path='/shareNest' element={<ResourceSharingProject />}></Route>
         <Route path='/helpingHand' element={<HelpingHand />}></Route>
         <Route path='/library' element={<Library />}></Route>
+        <Route path='/vendor-locator' element={<VendorLocator />}></Route>
+        <Route path='/ajnabee-trip' element={<AjnabeeTrip />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/certificates' element={<Certificates />}></Route>
         <Route path='/Todo' element={<Todo/>}></Route>

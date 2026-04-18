@@ -1,4 +1,5 @@
 import React from "react";
+
 function NewsletterForm() {
   const [email, setEmail] = React.useState("");
   const [status, setStatus] = React.useState(null);
@@ -31,20 +32,20 @@ function NewsletterForm() {
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-sm focus:outline-none focus:border-white"
+        className="rounded-lg border border-slate-700 bg-[rgba(15,23,42,0.9)] px-3 py-2 text-sm text-slate-100 focus:border-cyan-400 focus:outline-none"
       />
       <button
         type="submit"
-        className="bg-white text-gray-900 text-sm font-medium py-2 rounded-lg hover:bg-gray-200 transition"
+        className="rounded-lg bg-cyan-400 py-2 text-sm font-medium text-slate-950 transition hover:bg-cyan-300"
       >
         Subscribe
       </button>
 
       {status === "success" && (
-        <span className="text-green-400 text-xs">Subscribed successfully!</span>
+        <span className="text-xs text-green-400">Subscribed successfully!</span>
       )}
       {status === "error" && (
-        <span className="text-red-400 text-xs">Something went wrong.</span>
+        <span className="text-xs text-red-400">Something went wrong.</span>
       )}
     </form>
   );
@@ -52,70 +53,62 @@ function NewsletterForm() {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300  md:mt-0">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* About */}
+    <footer className="border-t border-[rgba(148,163,184,0.16)] bg-[rgba(8,17,31,0.98)] text-slate-300 md:mt-0">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-12 md:grid-cols-3">
         <div>
-          <h2 className="text-xl font-semibold text-white mb-3">
+          <h2 className="mb-3 text-xl font-semibold text-slate-50">
             Ayush Kumar Ray
           </h2>
           <p className="text-sm leading-relaxed">
-            Full‑stack developer passionate about building scalable web
+            Full-stack developer passionate about building scalable web
             applications using React, Node.js, MongoDB, and modern UI
             frameworks.
           </p>
         </div>
 
-        {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-medium text-white mb-3">Quick Links</h3>
+          <h3 className="mb-3 text-lg font-medium text-slate-50">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="/home" className="hover:text-white transition">
+              <a href="/home" className="transition hover:text-cyan-400">
                 Home
               </a>
             </li>
             <li>
-              <a href="/About" className="hover:text-white transition">
+              <a href="/About" className="transition hover:text-cyan-400">
                 About
               </a>
             </li>
             <li>
-              <a href="/Project" className="hover:text-white transition">
+              <a href="/Project" className="transition hover:text-cyan-400">
                 Projects
               </a>
             </li>
             <li>
-              <a href="/Contact" className="hover:text-white transition">
+              <a href="/Contact" className="transition hover:text-cyan-400">
                 Contact
               </a>
             </li>
             <li>
-              <a href="/Certificates" className="hover:text-white transition">
+              <a href="/Certificates" className="transition hover:text-cyan-400">
                 Certificates
               </a>
             </li>
           </ul>
         </div>
 
-        {/* Socials */}
         <div>
-          <h3 className="text-lg font-medium text-white mb-3">Connect</h3>
-
-          {/* Newsletter */}
-          <h3 className="text-lg font-medium text-white mb-3">Newsletter</h3>
-          <p className="text-sm mb-3">
+          <h3 className="mb-3 text-lg font-medium text-slate-50">Connect</h3>
+          <h3 className="mb-3 text-lg font-medium text-slate-50">Newsletter</h3>
+          <p className="mb-3 text-sm">
             Subscribe to get updates on new projects and blogs.
           </p>
           <NewsletterForm />
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800 py-4 text-center text-sm">
-        <p>
-          © {new Date().getFullYear()} Ayush Kumar Ray ❤️. All rights reserved.
-        </p>
+      <div className="border-t border-[rgba(148,163,184,0.12)] py-4 text-center text-sm text-slate-400">
+        <p>© {new Date().getFullYear()} Ayush Kumar Ray. All rights reserved.</p>
       </div>
     </footer>
   );

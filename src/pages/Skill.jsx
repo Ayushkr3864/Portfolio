@@ -55,7 +55,7 @@ function Skills() {
       <div className="w-full ">
         <Navbar />
       </div>
-      <section className="bg-[#0f172a] text-white py-16 px-6">
+      <section className="bg-transparent px-6 py-16 text-white">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-center mb-16 group relative"
           variants={fadeUp}
@@ -64,7 +64,7 @@ function Skills() {
           viewport={{ once: true }}
         >
           My <span className="text-cyan-400">Skills</span>
-          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+          <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-amber-400 transition-all duration-500 group-hover:w-full"></span>
         </motion.h1>
 
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
@@ -97,7 +97,7 @@ function Skills() {
                   </div>
                   <span>{skill.percent}%</span>
                 </div>
-                <div className="w-full bg-gray-700 h-3 rounded-full">
+                <div className="h-3 w-full rounded-full bg-slate-800">
                   <motion.div
                     className="h-full bg-cyan-400 rounded-full"
                     initial={{ width: 0 }}
@@ -132,14 +132,7 @@ function Skills() {
                 >
                   <div className="relative w-24 h-24">
                     <svg className="w-full h-full rotate-[-90deg]">
-                      <circle
-                        cx="48"
-                        cy="48"
-                        r="40"
-                        stroke="gray"
-                        strokeWidth="8"
-                        fill="transparent"
-                      />
+                      <circle cx="48" cy="48" r="40" stroke="#334155" strokeWidth="8" fill="transparent" />
                       <motion.circle
                         cx="48"
                         cy="48"
@@ -168,7 +161,7 @@ function Skills() {
         </div>
         {/* Floating Skills Visual */}
         <div className="w-full flex justify-center mt-15 ">
-          <div className="relative w-[100%] md:w-[700px] h-[450px] md:h-[450px] rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
+          <div className="relative h-[450px] w-[100%] rounded-3xl border border-[rgba(148,163,184,0.16)] bg-[rgba(15,23,42,0.72)] shadow-[0_24px_55px_rgba(8,17,31,0.36)] backdrop-blur-xl md:h-[450px] md:w-[700px]">
             <h2 className="absolute top-3 left-1/2 -translate-x-1/2 text-xl md:text-2xl text-cyan-400 font-bold">
               Tech I Use
             </h2>

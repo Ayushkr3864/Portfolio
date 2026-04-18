@@ -32,8 +32,7 @@
   animation: wave 2s infinite;
 }
 .glow {
-  /* color: #44ADF8; Your text color */
-  text-shadow: 0 0 5px #f0f7fc27, 0 0 10px #000000bb, 0 0 15px #44adf81f, 0 0 20px #04a1dfb9, 0 0 30px #0088ff2f, 0 0 40px #0088ff0e, 0 0 50px #0088ff2a;
+  text-shadow: 0 0 10px rgba(8, 17, 31, 0.5), 0 0 22px rgba(34, 211, 238, 0.22);
 }
 
 /* }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/navbar";
+
 function Contact() {
   const container = {
     hidden: { opacity: 0 },
@@ -29,19 +30,16 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const res = await fetch(
-        "https://portfolio-201q.onrender.com/send-email",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+      const res = await fetch("https://portfolio-201q.onrender.com/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
       const data = await res.json();
       alert(data.message);
 
-      setFormData({ name: "", email: "", message: "" }); // clear form
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       alert("Something went wrong!");
       console.error(error);
@@ -50,40 +48,38 @@ function Contact() {
 
   return (
     <>
-      <div className="w-full ">
+      <div className="w-full">
         <Navbar />
       </div>
       <motion.section
-        className="py-20 px-10 bg-[#0d1b2a]/80 backdrop-blur-md"
+        className="bg-transparent px-10 py-20 backdrop-blur-md"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-semibold text-center mb-10 text-cyan-400">
-          📩 Get in Touch
+        <h2 className="mb-10 text-center text-3xl font-semibold text-cyan-400">
+          Get in Touch
         </h2>
 
         <motion.form
           onSubmit={handleSubmit}
-          className="max-w-3xl mx-auto grid grid-cols-1 gap-6"
+          className="mx-auto grid max-w-3xl grid-cols-1 gap-6 rounded-3xl border border-[rgba(148,163,184,0.16)] bg-[rgba(15,23,42,0.72)] p-8 shadow-[0_18px_45px_rgba(8,17,31,0.35)]"
           variants={container}
         >
-          {/* Name */}
           <motion.input
             placeholder="Your Name"
             type="text"
-            className="p-3 rounded-lg bg-[#112240]/90 text-white border border-[#1d3557] focus:outline-none"
+            className="rounded-lg border border-slate-700 bg-[rgba(15,23,42,0.88)] p-3 text-white focus:border-cyan-400 focus:outline-none"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             variants={fadeUp}
           />
 
-          {/* Email */}
           <motion.input
             placeholder="Your Email"
             type="email"
-            className="p-3 rounded-lg bg-[#112240]/90 text-white border border-[#1d3557] focus:outline-none"
+            className="rounded-lg border border-slate-700 bg-[rgba(15,23,42,0.88)] p-3 text-white focus:border-cyan-400 focus:outline-none"
             value={formData.email}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
@@ -91,10 +87,9 @@ function Contact() {
             variants={fadeUp}
           />
 
-          {/* Message (textarea) */}
           <motion.textarea
             placeholder="Your Message"
-            className="p-3 rounded-lg bg-[#112240]/90 text-white border border-[#1d3557] focus:outline-none h-32 resize-none"
+            className="h-32 resize-none rounded-lg border border-slate-700 bg-[rgba(15,23,42,0.88)] p-3 text-white focus:border-cyan-400 focus:outline-none"
             value={formData.message}
             onChange={(e) =>
               setFormData({ ...formData, message: e.target.value })
@@ -102,10 +97,9 @@ function Contact() {
             variants={fadeUp}
           />
 
-          {/* Submit Button */}
           <motion.button
             type="submit"
-            className="bg-cyan-600 hover:bg-cyan-800 px-6 py-3 rounded-xl font-semibold shadow-md shadow-cyan-900"
+            className="rounded-xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 shadow-md shadow-cyan-900/30 hover:bg-cyan-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             variants={fadeUp}
