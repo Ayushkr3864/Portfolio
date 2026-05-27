@@ -42,7 +42,7 @@ function Navbar() {
   return (
     <>
       <div
-        className={`fixed left-0 top-0 z-50 hidden w-full flex-wrap items-center justify-evenly p-4 transition-all duration-500 md:flex ${navShell}`}
+        className={`fixed left-0 top-0 z-[100] hidden w-full flex-wrap items-center justify-evenly p-4 transition-all duration-500 md:flex ${navShell}`}
       >
         <motion.div
           className="flex space-x-1"
@@ -84,7 +84,7 @@ function Navbar() {
       </div>
 
       <div
-        className={`fixed left-0 top-0 z-50 flex w-full justify-between p-3 transition-all duration-500 md:hidden ${navShell}`}
+        className={`fixed left-0 top-0 z-[100] flex w-full justify-between p-3 transition-all duration-500 md:hidden ${navShell}`}
       >
         <motion.div
           className="flex space-x-1"
@@ -111,7 +111,7 @@ function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed left-0 top-20 z-20 flex flex-col items-center space-y-3 rounded-r-3xl border border-[rgba(148,163,184,0.16)] bg-[rgba(13,23,40,0.96)] p-3 py-5 shadow-[0_18px_40px_rgba(8,17,31,0.48)] backdrop-blur-xl md:hidden"
+            className="fixed left-0 top-20 z-[95] flex flex-col items-center space-y-3 rounded-r-3xl border border-[rgba(148,163,184,0.16)] bg-[rgba(13,23,40,0.96)] p-3 py-5 shadow-[0_18px_40px_rgba(8,17,31,0.48)] backdrop-blur-xl md:hidden"
             initial={{ x: -300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ opacity: 0, x: -300 }}

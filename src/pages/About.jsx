@@ -3,7 +3,6 @@ import profileImg from "../assets/ayushimg.png";
 import universityLogo from "../assets/imagecollege.png";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
-import Navbar from "../components/navbar";
 
 const About = () => {
   const navigate = useNavigate();
@@ -37,9 +36,6 @@ const About = () => {
 
   return (
     <>
-      <div className="w-full">
-        <Navbar />
-      </div>
       <div className="bg-transparent px-4 py-16 text-white md:px-16">
         <motion.h1
           className="group relative mb-16 mt-8 text-center text-4xl font-bold md:text-5xl"
@@ -109,7 +105,7 @@ const About = () => {
             <motion.div className="mb-6 flex flex-wrap gap-6" variants={fadeUp}>
               {[
                 { num: "8", label: "CGPA" },
-                { num: "Fresher", label: "Currently in 3rd Year" },
+                { num: "Fresher", label: "Final Year" },
                 { num: "2+", label: "Hackathons" },
               ].map((stat, i) => (
                 <motion.div
@@ -189,7 +185,7 @@ const About = () => {
             variants={{ ...fadeUp, hover: cardHover.hover }}
           >
             <div className="mb-4 flex items-center gap-4">
-              <img alt="College Logo" className="h-12 w-12 rounded-full" />
+              <img alt="College Logo" className="h-12 w-12 rounded-full" src="/school.jpg" />
               <h3 className="text-xl font-semibold">Rao Kasal Public School</h3>
             </div>
             <p className="mb-2 text-sm text-slate-300">

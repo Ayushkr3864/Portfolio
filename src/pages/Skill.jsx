@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { delay, easeInOut, motion } from "framer-motion";
-import Navbar from "../components/navbar";
 import {
   FaJs,
   FaPython,
@@ -52,9 +51,6 @@ function Skills() {
  };
   return (
     <>
-      <div className="w-full ">
-        <Navbar />
-      </div>
       <section className="bg-transparent px-6 py-16 text-white">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-center mb-16 group relative"

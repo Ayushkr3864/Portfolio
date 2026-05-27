@@ -3,7 +3,6 @@ import "../Stylesheets/hero.css";
 import { motion } from "framer-motion";
 import Typed from "typed.js";
 import { useNavigate } from "react-router";
-import Navbar from "../components/navbar";
 
 const achievements = [
   {
@@ -88,16 +87,12 @@ function Hero() {
       }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.14),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.12),transparent_24%)]"></div>
-      <div className="relative z-10 w-full">
-        <Navbar />
-      </div>
-
       <section className="relative z-10 flex min-h-screen w-full items-center justify-center px-4 pt-28 pb-16">
         <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-12 md:flex-row md:gap-20">
           <motion.div className="mt-12 md:mt-0">
             <motion.img
               className="mb-5 rounded-full transition-transform duration-600 animate-[zoomIn_2s_ease-out_forwards] scale-150 md:h-96 md:w-4xl md:scale-150"
-              src="/gif2.gif"
+              src="/young-boy.png"
               alt="Animated developer illustration"
             />
           </motion.div>

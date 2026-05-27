@@ -6,7 +6,6 @@ import helping from "../assets/helping.png";
 import vendorLocatorImg from "../assets/vendorLocator.png";
 import ajnabeeTripImg from "../assets/ajnabee.png";
 import MyWorkCard from "../components/MyWorkCard";
-import Navbar from "../components/navbar";
 
 const projects = [
   {
@@ -78,9 +77,6 @@ const Mywork = () => {
 
   return (
     <>
-      <div className="w-full ">
-        <Navbar />
-      </div>
       <div className="min-h-screen bg-transparent px-4 py-16 text-white md:px-16">
         {/* Heading */}
 
